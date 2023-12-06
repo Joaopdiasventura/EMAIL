@@ -1,0 +1,5 @@
+Para acessar a API, é nescessário ter uma conta do google com a verificação de duas etapas ativa e possuir uma senha de aplicativo para ser utilizada durante o processo de envio do email.
+
+Para conseguir sua senha de app visite : https://myaccount.google.com/apppasswords
+
+obs: Se utilizar uma senha que não seja uma senha app da sua conta do Gmail, ocorrerá uma falha durante o processo de envio de email.
