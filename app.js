@@ -26,7 +26,10 @@ app.post("/", (req, res) => {
         if (error) {
             console.log('Erro ao enviar o e-mail: ' + error);
         } else {
-            res.send("Email Enviado Com Sucesso");
+            res.send({
+                message: "Email Enviado com suscesso",
+                data: mailOptions.text
+            });
         }
     });
 
