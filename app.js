@@ -16,7 +16,7 @@ app.post("/", (req, res) => {
         service: 'Gmail',
         auth: {
             user: process.env.EMAIL,
-            pass: process.env.password,
+            pass: process.env.PASSWORD,
         },
     });
 
@@ -24,12 +24,13 @@ app.post("/", (req, res) => {
         from: process.env.EMAIL,
         to: req.body.to,
         subject: req.body.title,
-        text: req.body.content,
+        text: `${req.body.content}`,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             console.log('Erro ao enviar o e-mail: ' + error);
+            res.status(400).send(error)
         } else {
             res.send({
                 message: "Email Enviado com suscesso",
