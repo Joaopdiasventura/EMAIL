@@ -1,3 +1,6 @@
+import { config } from "dotenv";
+config();
+
 import express from "express";
 import nodemailer from "nodemailer";
 
@@ -10,13 +13,13 @@ app.post("/", (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: req.body.from,
-            pass: req.body.password,
+            user: process.env.EMAIL,
+            pass: process.env.password,
         },
     });
 
     const mailOptions = {
-        from: req.body.from,
+        from: process.env.EMAIL,
         to: req.body.to,
         subject: req.body.title,
         text: req.body.content,
